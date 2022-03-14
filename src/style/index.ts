@@ -6,4 +6,8 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  body {
+    font-family: 'Syne Mono';
+    font-size: 16px;
+  }
 `
