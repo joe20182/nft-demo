@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { rwd } from '@/style/rwd'
 
+export const HomeWrapper = styled.div`
+  padding-top: 120px;
+`
+
 export const ClubWrapper = styled.div`
   display: flex;
   align-items: center;

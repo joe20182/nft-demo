@@ -13,6 +13,10 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   overflow-x: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 `
 
 export const NavWrapper = styled.div`
