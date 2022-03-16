@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { HamWrapper, HamBar } from './style'
 
 interface Props {
-  clickEvent?: (e: Event) => void
+  clickEvent?: () => void
 }
 
 const Hamburger: FC<Props> = ({ clickEvent }) => {
