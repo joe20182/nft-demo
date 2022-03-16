@@ -9,7 +9,7 @@ const Club: FC = () => {
         <ManImg src={ManImage} />
       </ClubBlock>
       <ClubBlock>
-        <H1>Just For Test</H1>
+        <H1>JUST FOR FUN</H1>
         <P>
           This is not a real NFT project.
           <br />
