@@ -11,7 +11,7 @@ const Team: FC = () => {
         Basically there is no team behind, there is only me :)
         <br />
         Just to clearify again, this is just a project for me to practice some
-        frontend stuff and solidity.
+        frontend stuff and also solidity.
         <br />I wrote some shitty code based on the OpenZeppelin ERC721
         contract.
       </P>

@@ -51,3 +51,11 @@ export const TeamWrapper = styled.div`
     padding: 60px 20px;
   `)}
 `
+
+export const RoadmapWrapper = styled.div`
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2b2b54;
+`

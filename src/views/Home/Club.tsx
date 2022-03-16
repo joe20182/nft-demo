@@ -11,11 +11,14 @@ const Club: FC = () => {
       <ClubBlock>
         <H1>JUST FOR FUN</H1>
         <P>
+          &quot;Gya&quot; means child in Taiwanese, so Hip-Hop Gya stands for
+          Hip-Hop child.
+          <br />
           This is not a real NFT project.
           <br />
           The project is deployed to the Rinkeby testnet, just for fun.
           <br />
-          And yes you can mint it!
+          And yes you can mint it with test ETH!
         </P>
       </ClubBlock>
     </ClubWrapper>
