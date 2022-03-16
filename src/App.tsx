@@ -8,11 +8,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <h1>App</h1>
-      <div className="links">
-        <Link to="/about">About</Link>&nbsp;
-        <Link to="/about/A">About Nested</Link>
-      </div>
       <div className="page-wrapper">
         <Suspense fallback={<div>Loading</div>}>
           {renderRoutes(routes)}
