@@ -8,14 +8,8 @@ const routesConfig: RouteConfig[] = [
     component: lazy(() => import('@/views/Home')),
   },
   {
-    path: '/about',
-    component: lazy(() => import('@/views/About')),
-    routes: [
-      {
-        path: '/about/A',
-        component: lazy(() => import('@/views/About/A')),
-      },
-    ],
+    path: '/mint',
+    component: lazy(() => import('@/views/Mint')),
   },
   // {
   //   path: "*",
