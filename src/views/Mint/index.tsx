@@ -14,7 +14,7 @@ const Mint: FC = () => {
 
   const initMetamask = async () => {
     if (!window.ethereum) {
-      console.log('XX')
+      alert('Please install metamask')
       return
     }
     const provider = new ethers.providers.Web3Provider(window.ethereum)

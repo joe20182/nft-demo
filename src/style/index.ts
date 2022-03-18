@@ -11,4 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     /* font-family: 'Syne Mono'; */
     font-size: 16px;
   }
+  a {
+    text-decoration: none;
+  }
 `
