@@ -3,7 +3,7 @@ import { TeamWrapper, H1, P } from './style'
 
 const Team: FC = () => {
   return (
-    <TeamWrapper>
+    <TeamWrapper id="team">
       <H1 border="#fff">THE TEAM</H1>
       <P>
         Well...

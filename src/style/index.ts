@@ -7,6 +7,9 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'Syne Mono';
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     /* font-family: 'Syne Mono'; */
     font-size: 16px;

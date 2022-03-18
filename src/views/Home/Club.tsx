@@ -4,7 +4,7 @@ import ManImage from '@/assets/img/man.png'
 
 const Club: FC = () => {
   return (
-    <ClubWrapper>
+    <ClubWrapper id="club">
       <ClubBlock>
         <ManImg src={ManImage} />
       </ClubBlock>
