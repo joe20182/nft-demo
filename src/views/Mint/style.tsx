@@ -18,3 +18,14 @@ export const ConnectBtn = styled.button`
   cursor: pointer;
   border-radius: 10px;
 `
+
+export const MintedText = styled.p`
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  word-break: break-all;
+`
+
+export const ConnectedWrapper = styled.div`
+  text-align: center;
+`
