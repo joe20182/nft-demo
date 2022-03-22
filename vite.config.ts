@@ -14,4 +14,7 @@ export default defineConfig({
   //   global: {},
   //   // Buffer: {},
   // },
+  build: {
+    outDir: 'docs', // use docs as build folder name for github pages
+  },
 })
