@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <GlobalStyle />
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/nft-demo">
         <App />
       </BrowserRouter>
     </Provider>

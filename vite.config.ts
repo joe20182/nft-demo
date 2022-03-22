@@ -14,7 +14,7 @@ export default defineConfig({
   //   global: {},
   //   // Buffer: {},
   // },
-  base: 'nft-demo',
+  base: '/nft-demo/',
   build: {
     outDir: 'docs', // use docs as build folder name for github pages
   },
