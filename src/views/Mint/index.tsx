@@ -17,7 +17,19 @@ const Mint: FC = () => {
 
   // useEffect(() => {
   //   initMetamask()
+  //   if (window.ethereum !== 'undefined') {
+  //     window.ethereum.on('accountsChanged', () => {
+  //       console.log('accountsChanged !')
+  //     })
+  //   }
   // }, [])
+
+  // 換頁進來重新取值
+  useEffect(() => {
+    if (wallet.connected) {
+      handleCheckContract()
+    }
+  }, [])
 
   const initMetamask = async () => {
     if (!window.ethereum) {
@@ -42,13 +54,26 @@ const Mint: FC = () => {
   const handleCheckContract = async () => {
     HHGContract = new ethers.Contract(addr, ABI, provider)
 
+    // const filter = {
+    //   address: addr,
+    //   topics: [
+    //     // the name of the event, parnetheses containing the data type of each event, no spaces
+    //     ethers.utils.id('safeMint(address)'),
+    //   ],
+    // }
+    // provider.on(filter, (qqq) => {
+    //   // do whatever you want here
+    //   // I'm pretty sure this returns a promise, so don't forget to resolve it
+    //   console.log(12321, qqq)
+    // })
+
     try {
       const [current, total] = await Promise.all([
         HHGContract.totalSupply(),
         HHGContract.MAX_SUPPLY(),
       ])
 
-      console.log('QQQ ', current.toNumber(), total.toNumber())
+      // console.log('QQQ ', current.toNumber(), total.toNumber())
       setMintedObj({
         current: current.toNumber(),
         total: total.toNumber(),
@@ -66,7 +91,16 @@ const Mint: FC = () => {
     const options = { value: ethers.utils.parseEther('0.01') }
     try {
       const res = await contract.safeMint(wallet.address[0], options)
-      console.log(res)
+      // console.log(res)
+      // console.log(res.hash)
+
+      const comfirmed = await provider.waitForTransaction(res.hash)
+      // The status of a transaction is 1 is successful or 0 if it was reverted
+      // console.log('OK???', comfirmed)
+      if (comfirmed.status === 1) {
+        alert('Minted successfully!')
+        handleCheckContract()
+      }
     } catch (error) {
       console.log('Mint failed')
     }
