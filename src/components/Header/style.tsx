@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { rwd } from '@/style/rwd'
 
 export const Logo = styled.img`
-  width: 100px;
+  width: 200px;
   cursor: pointer;
 `
 
