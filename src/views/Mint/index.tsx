@@ -81,6 +81,7 @@ const Mint: FC = () => {
     } catch (error) {
       // wrong network or other cases
       console.log('XXX ', error)
+      alert('Please switch to rinkeby testnet and refresh!')
     }
   }
 
@@ -114,7 +115,11 @@ const Mint: FC = () => {
           <MintedText>
             minted: {mintedObj.current}/{mintedObj.total}
           </MintedText>
-          <ConnectBtn onClick={handleMint}>MINT</ConnectBtn>
+          {mintedObj.current < mintedObj.total ? (
+            <ConnectBtn onClick={handleMint}>MINT</ConnectBtn>
+          ) : (
+            <ConnectBtn>SOLD OUT</ConnectBtn>
+          )}
         </ConnectedWrapper>
       ) : (
         <ConnectBtn onClick={handleConnect}>
