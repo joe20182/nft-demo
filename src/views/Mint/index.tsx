@@ -37,18 +37,18 @@ const Mint: FC = () => {
     const hexedChainId = '0x4'
     // const hexedChainId = ethers.utils.hexlify(chainId)
 
-    if (window.ethereum.networkVersion !== chainId) {
-      try {
-        await window.ethereum.request({
-          method: 'wallet_switchEthereumChain',
-          params: [{ chainId: hexedChainId }],
-        })
-        return true
-      } catch (err) {
-        alert('Please check if you have added Rinkeby testnet to your metamask')
-      }
-    } else {
+    if (window.ethereum.networkVersion === chainId) {
       return true
+    }
+    try {
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: hexedChainId }],
+      })
+      return true
+    } catch (err) {
+      alert('Please check if you have added Rinkeby testnet to your metamask')
+      return false
     }
   }
 
