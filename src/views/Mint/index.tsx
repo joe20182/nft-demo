@@ -31,17 +31,42 @@ const Mint: FC = () => {
     }
   }, [])
 
+  const switchToRinkeby = async () => {
+    const chainId = 4
+    const hexedChainId = '0x4'
+    // const hexedChainId = ethers.utils.hexlify(chainId)
+
+    if (window.ethereum.networkVersion !== chainId) {
+      try {
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: hexedChainId }],
+        })
+        return true
+      } catch (err) {
+        alert('Please check if you have added Rinkeby testnet to your metamask')
+      }
+    } else {
+      return true
+    }
+  }
+
   const initMetamask = async () => {
     if (!window.ethereum) {
       alert('Please install metamask')
       return
     }
-    provider = new ethers.providers.Web3Provider(window.ethereum)
+    const switched = await switchToRinkeby()
+    if (!switched) return
+
+    provider = new ethers.providers.Web3Provider(window.ethereum, 4)
     return await provider.send('eth_requestAccounts', [])
   }
 
   const handleConnect = async () => {
     const account = await initMetamask()
+    if (!account) return
+
     dispatch(
       connect({
         connected: true,
