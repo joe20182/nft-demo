@@ -17,6 +17,10 @@ export const ConnectBtn = styled.button`
   color: #fff;
   cursor: pointer;
   border-radius: 10px;
+  &:disabled {
+    background-image: linear-gradient(180deg, #eee, #bbb);
+    border: 4px solid #eee;
+  }
 `
 
 export const MintedText = styled.p`

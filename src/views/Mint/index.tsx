@@ -12,6 +12,7 @@ const Mint: FC = () => {
   const wallet = useAppSelector(selectWallet)
   const dispatch = useAppDispatch()
   const [mintedObj, setMintedObj] = useState({ current: 0, total: 0 })
+  const [minting, setMinting] = useState(false)
 
   const [addr, ABI] = useContract()
 
@@ -119,16 +120,19 @@ const Mint: FC = () => {
       const res = await contract.safeMint(wallet.address[0], options)
       // console.log(res)
       // console.log(res.hash)
+      setMinting(true)
 
       const comfirmed = await provider.waitForTransaction(res.hash)
       // The status of a transaction is 1 is successful or 0 if it was reverted
       // console.log('OK???', comfirmed)
       if (comfirmed.status === 1) {
         alert('Minted successfully!')
+        setMinting(false)
         handleCheckContract()
       }
     } catch (error) {
       console.log('Mint failed')
+      setMinting(false)
     }
   }
 
@@ -141,9 +145,11 @@ const Mint: FC = () => {
             minted: {mintedObj.current}/{mintedObj.total}
           </MintedText>
           {mintedObj.current < mintedObj.total ? (
-            <ConnectBtn onClick={handleMint}>MINT</ConnectBtn>
+            <ConnectBtn onClick={handleMint} disabled={minting}>
+              {minting ? 'MINTING...' : 'MINT'}
+            </ConnectBtn>
           ) : (
-            <ConnectBtn>SOLD OUT</ConnectBtn>
+            <ConnectBtn disabled>SOLD OUT</ConnectBtn>
           )}
         </ConnectedWrapper>
       ) : (
