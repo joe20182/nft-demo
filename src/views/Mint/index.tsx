@@ -78,7 +78,8 @@ const Mint: FC = () => {
   }
 
   const handleCheckContract = async () => {
-    HHGContract = new ethers.Contract(addr, ABI, provider)
+    const signer = provider.getSigner()
+    HHGContract = new ethers.Contract(addr, ABI, signer)
 
     // const filter = {
     //   address: addr,
@@ -112,12 +113,9 @@ const Mint: FC = () => {
   }
 
   const handleMint = async () => {
-    const signer = provider.getSigner()
-    const contract = new ethers.Contract(addr, ABI, signer)
-
     const options = { value: ethers.utils.parseEther('0.01') }
     try {
-      const res = await contract.safeMint(wallet.address[0], options)
+      const res = await HHGContract.safeMint(wallet.address[0], options)
       // console.log(res)
       // console.log(res.hash)
       setMinting(true)
@@ -131,7 +129,7 @@ const Mint: FC = () => {
         handleCheckContract()
       }
     } catch (error) {
-      console.log('Mint failed')
+      console.log('Mint failed', error)
       setMinting(false)
     }
   }
